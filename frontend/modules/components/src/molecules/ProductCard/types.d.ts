@@ -4,4 +4,5 @@ export interface ProductCardProps {
   description: string;
   price: string;
   onAddToCart: () => void;
+  isOnline: boolean;
 }
