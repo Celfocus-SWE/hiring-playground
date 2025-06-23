@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json", // ✅ يفضل تخليه موجود زي ما هو
   "compilerOptions": {
     "jsx": "preserve",
     "allowJs": true,
@@ -16,8 +16,23 @@
         "name": "next"
       }
     ],
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "baseUrl": ".", // ✅ أضف دي عشان `paths` تشتغل
+    "paths": {
+      "@services/*": ["../../libs/services/*"] // ✅ خليه يخرج لفوق لو الملف داخل app/module
+    }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
-  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "next-env.d.ts"
+, "../app/libs/services/products/src/lib/index.ts", "../app/libs/services/products/src/lib/api.ts"  ],
+  "exclude": [
+    "node_modules",
+    "jest.config.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }

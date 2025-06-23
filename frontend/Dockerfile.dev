@@ -1,0 +1,26 @@
+FROM node:21
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json ./
+COPY nx.json ./
+COPY tsconfig*.json ./
+COPY babelrc ./
+COPY jest.config.ts ./
+COPY jest.preset.js ./
+COPY globals.d.ts ./
+COPY .prettierrc ./
+COPY .prettierignore ./
+COPY .eslintrc.json ./
+COPY .editorconfig ./
+
+# Install all dependencies (including dev dependencies for hot-reload)
+RUN npm install
+
+# Copy source code
+COPY modules/ ./modules/
+
+EXPOSE 4200
+
+# Use nx serve for hot-reload development
+CMD ["npx", "nx", "serve", "app", "--host=0.0.0.0", "--port=4200"] 

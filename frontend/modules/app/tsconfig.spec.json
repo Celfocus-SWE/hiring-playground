@@ -16,6 +16,22 @@
     "src/**/*.spec.js",
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "specs/**/*.test.ts",
+    "specs/**/*.spec.ts",
+    "specs/**/*.test.tsx",
+    "specs/**/*.spec.tsx",
+    "specs/**/*.test.js",
+    "specs/**/*.spec.js",
+    "specs/**/*.test.jsx",
+    "specs/**/*.spec.jsx",
+    "libs/**/*.test.ts",
+    "libs/**/*.spec.ts",
+    "libs/**/*.test.tsx",
+    "libs/**/*.spec.tsx",
+    "libs/**/*.test.js",
+    "libs/**/*.spec.js",
+    "libs/**/*.test.jsx",
+    "libs/**/*.spec.jsx"
   ]
 }

@@ -1,9 +1,80 @@
+# services:
+#   playground-frontend:
+#     networks:
+#     - celfocus-network
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - 4200:4200
+
+
+# services:
+#   playground-frontend:
+#     networks:
+#       - celfocus-network
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - 4200:4200
+#     volumes:
+#       - .:/app
+#       - /app/node_modules
+#     environment:
+#       - CHOKIDAR_USEPOLLING=true
+
+
+# services:
+#   playground-frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     ports:
+#       - "4200:4200"
+#     volumes:
+#       - ./frontend:/app
+#     command: npm run dev
+
+# services:
+#   playground-frontend:
+#     build:
+#       context: ../frontend  # مهم جدًا! عشان Docker يلاقي الكود
+#     ports:
+#       - "4200:4200"
+#     volumes:
+#       - ../frontend:/app  # ده اللي يخلي التعديلات تسجل تلقائيًا
+#       - /app/node_modules  # يمنع تعارض node_modules بتاعت الجهاز
+#     command: npm run start
+#     networks:
+#       - celfocus-network
+
+
 services:
   playground-frontend:
-    networks:
-    - celfocus-network
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
-      - 4200:4200
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    networks:
+      - celfocus-network
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - node_modules/
+            - dist/
+            - .nx/
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: Dockerfile.dev

@@ -1,0 +1,138 @@
+/* ProductCard Animations and Effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLoader {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover effects for product card */
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Button hover effects */
+.add-to-cart-button {
+  transition: all 0.2s ease;
+}
+
+.add-to-cart-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Modal animations */
+.modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  animation: fadeInLoader 0.3s ease-out;
+}
+
+.loader-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Theme-specific hover effects */
+[data-theme="dark"] .product-card:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="blue"] .product-card:hover {
+  box-shadow: 0 8px 16px rgba(33, 150, 243, 0.15) !important;
+}
+
+[data-theme="green"] .product-card:hover {
+  box-shadow: 0 8px 16px rgba(39, 174, 96, 0.15) !important;
+}
+
+[data-theme="purple"] .product-card:hover {
+  box-shadow: 0 8px 16px rgba(156, 39, 176, 0.15) !important;
+}
+
+/* Size-specific adjustments */
+[data-size="small"] .product-card:hover {
+  transform: translateY(-2px);
+}
+
+[data-size="large"] .product-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Variant-specific effects */
+[data-variant="elevated"] .product-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-variant="elevated"] .product-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-variant="minimal"] .product-card:hover {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Shadow-specific effects */
+[data-shadow="none"] .product-card:hover {
+  box-shadow: none !important;
+}
+
+[data-shadow="small"] .product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-shadow="large"] .product-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
+} 

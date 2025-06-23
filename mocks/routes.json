@@ -1,5 +1,5 @@
 {
     "/api/v1/products": "/products",
-    "/api/v1/carts/items": "/items",
-    "/api/v1/carts/items/:itemId": "/items?itemId=:itemId"
+    "/api/v1/carts/items": "/carts/items",
+    "/api/v1/carts/items/:id": "/carts/items/:id"
 }

@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {"@ui/product-card": ["libs/ui/product-card/src/index.ts"]},
   },
   "include": ["globals.d.ts"],
   "exclude": ["node_modules", "tmp"]

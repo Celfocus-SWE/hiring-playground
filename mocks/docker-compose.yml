@@ -1,9 +1,23 @@
 services:
   playground-api-mocks:
-    networks:
-    - celfocus-network
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
-      - 8082:8082
+      - "8082:8082"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - celfocus-network
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: Dockerfile.dev
