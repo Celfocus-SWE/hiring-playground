@@ -11,6 +11,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
+    "lib": ["dom", "dom.iterable", "es6"],
+    "moduleResolution": "node",
+    "target": "es5",
+    "skipLibCheck": true,
     "paths": {
       "@components": ["modules/components/src/index.ts"],
       "@services": ["modules/services/index.ts"],
@@ -19,8 +23,7 @@
       {
         "name": "next"
       }
-    ],
-    "types": ["jest", "node"]
+    ]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts", ".eslintrc.js"],
   "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]

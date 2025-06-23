@@ -3,19 +3,35 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "storybook": "nx start-storybook --verbose",
+    "storybook": "storybook dev -p 6006",
     "storybook:build": "nx build-storybook",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:product-card": "jest ProductCard.spec.js --verbose",
+    "test:product-card-simple": "jest ProductCard.simple.spec.js --verbose"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "description": "",
-  "dependencies": {
-    "@storybook/react-webpack5": "^8.4.4"
-  },
   "devDependencies": {
-    "@types/node": "^22.9.0",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-webpack5": "^8.6.14",
+    "@types/node": "^20.11.0",
+    "@types/jest": "^29.5.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
     "webpack-bundle-analyzer": "^4.10.2"
   }
 }

@@ -1,0 +1,16 @@
+FROM node:21-alpine
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source files
+COPY . .
+
+EXPOSE 8082
+
+# Use nodemon for hot-reload
+CMD ["npm", "run", "dev"] 

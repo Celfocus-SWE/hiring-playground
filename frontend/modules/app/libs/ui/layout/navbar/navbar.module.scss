@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1f1f1f;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: 6rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
