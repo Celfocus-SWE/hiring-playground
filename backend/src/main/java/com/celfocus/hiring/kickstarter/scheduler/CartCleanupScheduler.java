@@ -20,6 +20,8 @@ public class CartCleanupScheduler {
 
     @Scheduled(fixedRate = 60 * 60 * 1000) // every hour
     public void cleanupInactiveCarts() {
+        log.debug("Running cart cleanup job at {}", LocalDateTime.now());
+
         LocalDateTime threshold = LocalDateTime.now().minusHours(24);
         cartRepository.findAll().stream()
             .filter(cart -> cart.getLastUpdated() != null && cart.getLastUpdated().isBefore(threshold))
