@@ -2,6 +2,7 @@ package com.celfocus.hiring.kickstarter.db.entity;
 
 import com.celfocus.hiring.kickstarter.domain.Cart;
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import org.hibernate.annotations.NaturalId;
 
 import java.io.Serializable;
@@ -12,6 +13,9 @@ import java.util.List;
 public class CartEntity extends Cart<CartItemEntity> implements Serializable {
 
     private Long id;
+
+    @Column(name = "last_updated")
+    private LocalDateTime lastUpdated;
 
     @Id
     @Column(name = "ID")
@@ -36,4 +40,13 @@ public class CartEntity extends Cart<CartItemEntity> implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void setLastUpdated(LocalDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public LocalDateTime getLastUpdated() {
+        return lastUpdated;
+    }
+
 }
