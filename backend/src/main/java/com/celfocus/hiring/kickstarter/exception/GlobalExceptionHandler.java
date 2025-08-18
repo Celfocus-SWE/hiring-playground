@@ -37,6 +37,28 @@ public class GlobalExceptionHandler {
             request.getDescription(false).replace("uri=", ""));
     }
 
+    @ExceptionHandler(CartNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleCartNotFound(CartNotFoundException ex, WebRequest request) {
+        log.error("Cart not found: {}", ex.getMessage(), ex);
+        return buildResponseEntity(HttpStatus.NOT_FOUND, "Not Found", ex.getMessage(),
+            request.getDescription(false).replace("uri=", ""));
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleProductNotFound(ProductNotFoundException ex, WebRequest request) {
+        log.error("Product not found: {}", ex.getMessage(), ex);
+        return buildResponseEntity(HttpStatus.NOT_FOUND, "Not Found", ex.getMessage(),
+            request.getDescription(false).replace("uri=", ""));
+    }
+
+    @ExceptionHandler(InvalidCartOperationException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidCartOperation(InvalidCartOperationException ex,
+        WebRequest request) {
+        log.error("Invalid cart operation: {}", ex.getMessage(), ex);
+        return buildResponseEntity(HttpStatus.BAD_REQUEST, "Bad Request", ex.getMessage(),
+            request.getDescription(false).replace("uri=", ""));
+    }
+
     private ResponseEntity<ErrorResponse> buildResponseEntity(HttpStatus status,
         String error,
         String message,

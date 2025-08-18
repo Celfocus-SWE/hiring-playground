@@ -9,6 +9,8 @@ import com.celfocus.hiring.kickstarter.db.repo.CartRepository;
 import com.celfocus.hiring.kickstarter.db.repo.ProductRepository;
 import com.celfocus.hiring.kickstarter.domain.Cart;
 import com.celfocus.hiring.kickstarter.domain.CartItem;
+import com.celfocus.hiring.kickstarter.exception.CartNotFoundException;
+import com.celfocus.hiring.kickstarter.exception.ProductNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +53,7 @@ public class CartService {
 
     private void addNewItemToCart(CartItemInput itemInput, CartEntity cart) {
         var product = productRepository.findBySku(itemInput.itemId())
-                .orElseThrow(() -> new RuntimeException("Cart Item not found"));
+                .orElseThrow(() -> new ProductNotFoundException(itemInput.itemId()));
         var cartItem = new CartItemEntity();
         cartItem.setQuantity(1);
         cartItem.setItemId(itemInput.itemId());
@@ -81,7 +83,7 @@ public class CartService {
         log.info("Getting cart for user: {}", username);
         return cartRepository.findByUserId(username)
                 .map(this::mapToCart)
-                .orElseThrow(() -> new RuntimeException("Cart not found"));
+                .orElseThrow(() -> new CartNotFoundException(username));
     }
 
     public void removeItemFromCart(String username, String itemId) {
