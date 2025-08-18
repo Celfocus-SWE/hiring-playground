@@ -14,6 +14,8 @@ import com.celfocus.hiring.kickstarter.exception.ProductNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,7 @@ public class CartService {
         this.productRepository = productRepository;
     }
 
+    @CacheEvict(cacheNames = "carts", key = "#username")
     public void addItemToCart(String username, CartItemInput itemInput) {
 
         log.info("Adding item to cart: {}", itemInput);
@@ -74,11 +77,13 @@ public class CartService {
         cartItemRepository.save(item);
     }
 
+    @CacheEvict(cacheNames = "carts", key = "#username")
     public void clearCart(String username) {
         log.info("Clearing cart for user: {}", username);
         cartRepository.deleteByUserId(username);
     }
 
+    @Cacheable(cacheNames = "carts", key = "#username")
     public Cart<? extends CartItem> getCart(String username) {
         log.info("Getting cart for user: {}", username);
         return cartRepository.findByUserId(username)
@@ -86,6 +91,7 @@ public class CartService {
                 .orElseThrow(() -> new CartNotFoundException(username));
     }
 
+    @CacheEvict(cacheNames = "carts", key = "#username")
     public void removeItemFromCart(String username, String itemId) {
         log.info("Removing item from cart: {}", itemId);
         cartRepository.findByUserId(username)
