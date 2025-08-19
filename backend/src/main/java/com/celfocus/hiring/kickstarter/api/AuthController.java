@@ -16,13 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+
     @Value("${jwt.secret}")
     private String secretKey;
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String username,
         @RequestParam String password) {
-        // Hard-coded users just like you had in SecurityConfig
-        if(("user".equals(username) && "password".equals(password)) ||
+
+        if (("user".equals(username) && "password".equals(password)) ||
             ("admin".equals(username) && "admin".equals(password))) {
             String token = Jwts.builder()
                 .setSubject(username)
@@ -34,4 +36,5 @@ public class AuthController {
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
+
 }
