@@ -1,8 +1,9 @@
 package com.celfocus.hiring.kickstarter.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class CartItem {
+public class CartItem implements Serializable {
     private String itemId;
     private BigDecimal price;
     private Integer quantity;

@@ -1,8 +1,9 @@
 package com.celfocus.hiring.kickstarter.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Cart<T extends CartItem> {
+public class Cart<T extends CartItem> implements Serializable {
     private String userId;
     private List<T> items;
 
