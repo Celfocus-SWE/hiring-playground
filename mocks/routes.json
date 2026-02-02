@@ -2,5 +2,5 @@
   "/api/v1/products": "/products",
   "/api/v1/carts": "/carts",
   "/api/v1/carts/items": "/items",
-  "/api/v1/carts/items/:id": "/items/:id"
+  "/api/v1/carts/items/:itemId": "/items/:itemId"
 }

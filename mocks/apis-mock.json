@@ -244,40 +244,18 @@
   "carts": {
     "items": [
       {
-        "id": "1",
+        "itemId": "1",
         "quantity": 1,
         "price": 109.95,
         "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
       },
       {
-        "id": "2",
+        "itemId": "2",
         "quantity": 2,
         "price": 22.3,
         "name": "Mens Casual Premium Slim Fit T-Shirts"
       }
     ]
   },
-  "items": [
-    {
-      "id": "3",
-      "quantity": 1,
-      "price": 55.99,
-      "name": "Mens Cotton Jacket",
-      "imageUrl": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png"
-    },
-    {
-      "id": "6",
-      "quantity": 1,
-      "price": 168,
-      "name": "Solid Gold Petite Micropave ",
-      "imageUrl": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png"
-    },
-    {
-      "id": "1",
-      "quantity": 1,
-      "price": 109.95,
-      "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      "imageUrl": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-    }
-  ]
+  "items": []
 }
