@@ -5,6 +5,6 @@
   "author": "Celfocus SWE",
   "license": "MIT",
   "dependencies": {
-    "next": "14.2.15"
+    "next": "16.1.5"
   }
 }

@@ -12,6 +12,17 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@components': require('path').resolve(
+        __dirname,
+        '../../modules/components/src'
+      ),
+      '@services': require('path').resolve(__dirname, '../../modules/services'),
+    };
+    return config;
+  },
 };
 
 const plugins = [

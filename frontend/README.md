@@ -67,7 +67,7 @@ The mock server is built using `json-server` and can be started using the follow
 ```bash
 npm install -g json-server@v0.17.4
 cd mocks
-json-server -w apis-mock.json --routes routes.json --port 8082
+json-server -w apis-mock.json --routes routes.json --middlewares ids-middleware.js --port 8082
 ```
 
 > [!IMPORTANT]
@@ -125,4 +125,5 @@ We use storybook to test the components. To run the storybook, use the following
 cd frontend/modules/components
 npm run storybook
 ```
+
 Now navigate to http://localhost:4400/ to see your components.
